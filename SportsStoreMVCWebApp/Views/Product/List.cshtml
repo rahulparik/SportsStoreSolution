@@ -1,0 +1,15 @@
+﻿@using SportsStoreMVCWebApp.Models
+@model SportsStoreMVCWebApp.Models.ProductsListViewModel
+@{
+    ViewBag.Title = "List";
+}
+
+@foreach (var item in Model.Products)
+{
+    Html.RenderPartial("ProductSummary", item);
+}
+
+<div class="pager">
+    @SportsStoreMVCWebApp.HtmlHelpers.PagingHelpers.PageLinks(@Html, Model.PagingInfo, Model.CurrentCategory, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+    @*@SportsStoreMVCWebApp.HtmlHelpers.PagingHelpers.PageLinks(@Html, Model.PagingInfo, x => Url.Action("List", new { page = x}))*@
+</div>

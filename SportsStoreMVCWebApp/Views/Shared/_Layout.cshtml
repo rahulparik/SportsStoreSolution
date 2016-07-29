@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            @Html.ActionLink("Sports Store", "List", "Product", new { area = "" }, new { @class = "navbar-brand" })
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                        <div id="header">
+                            @{ Html.RenderAction("Summary", "Cart");}
+                            <div class="title">Summary</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:55px;">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <div id="categories">@{Html.RenderAction("Menu", "Nav");}</div>
+                </div>
+
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="border-left: dotted 1px gray">
+                    <div class="container body-content">
+                        @RenderBody()
+                        <hr />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="navbar navbar-inverse navbar-fixed-bottom">
+                    <footer>
+                        <h4 style="margin:15px 5px; color:aqua;">&copy; @DateTime.Now.Year - Sports Store</h4>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

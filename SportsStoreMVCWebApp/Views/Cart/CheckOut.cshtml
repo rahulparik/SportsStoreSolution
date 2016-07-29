@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<h2>CheckOut</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Name: <input type="text"/><br/>
+            Address: <input type="text" />
+        </p>
+        <input type="submit" value="Place Order"/>
+    }
+</div>
+
